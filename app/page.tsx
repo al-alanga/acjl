@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check, FileCheck2, Menu, ShieldCheck, Calculator, ReceiptText, UsersRound, BriefcaseBusiness, Building2, ClipboardList, X, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Check, FileCheck2, Menu, ShieldCheck, Calculator, ReceiptText, UsersRound, BriefcaseBusiness, Building2, ClipboardList, X, Mail, MapPin } from "lucide-react";
 
 const services = [
   { category: "Formalização", title: "Constituição de empresa", description: "Apoio na criação do negócio e no encaminhamento dos registos e procedimentos aplicáveis.", type: "Avulso", icon: Building2, price: "Sob proposta" },
