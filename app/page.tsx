@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ArrowRight, Check, FileCheck2, Menu, ShieldCheck, Calculator, ReceiptText, UsersRound, BriefcaseBusiness, Building2, ClipboardList, Search, X, Phone, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Check, FileCheck2, Menu, ShieldCheck, Calculator, ReceiptText, UsersRound, BriefcaseBusiness, Building2, ClipboardList, X, Phone, Mail, MapPin } from "lucide-react";
 
 const services = [
   { category: "Formalização", title: "Constituição de empresa", description: "Apoio na criação do negócio e no encaminhamento dos registos e procedimentos aplicáveis.", type: "Avulso", icon: Building2, price: "Sob proposta" },
@@ -38,18 +38,14 @@ const combined = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("Todos");
-  const [modality, setModality] = useState("Todas");
+  const [activeServiceCategory, setActiveServiceCategory] = useState<string | null>(null);
   const [modal, setModal] = useState<string | null>(null);
   const [selected, setSelected] = useState("");
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [referenceCode, setReferenceCode] = useState("");
-  const categories = ["Todos", ...Array.from(new Set(services.map((s) => s.category)))];
-  const modalities = ["Todas", "Avulso", "Mensal", "Avulso combinado"];
-  const filtered = useMemo(() => services.filter((s) => (category === "Todos" || s.category === category) && (modality === "Todas" || s.type.toLowerCase().includes(modality.toLowerCase())) && (s.title + " " + s.description + " " + s.category).toLowerCase().includes(query.toLowerCase())), [category, modality, query]);
+
 
   function startRequest(name: string) {
     setSelected(name);
@@ -105,12 +101,32 @@ export default function Home() {
 
       <section className="section intro-section" id="empresa"><div className="container intro-grid"><div><div className="eyebrow"><span></span> SOBRE A ACJL</div><h2>O apoio empresarial deve <em>simplificar.</em></h2></div><div className="intro-copy"><p>A ACJL — Contabilidade & Serviços reúne soluções de apoio à atividade empresarial para que os responsáveis pelos negócios possam dedicar mais tempo aos clientes, às operações e ao crescimento.</p><p>Trabalhamos com serviços avulsos, pacotes mensais especializados e soluções combinadas. Cada contratação deve ter um âmbito claro, entregáveis definidos e condições adequadas à dimensão do trabalho.</p><a className="text-link dark-link" href="#como-funciona">A nossa forma de trabalhar <ArrowRight size={16}/></a></div></div></section>
 
-      <section className="section services-section" id="servicos"><div className="container"><div className="section-heading"><div><div className="eyebrow"><span></span> O QUE FAZEMOS</div><h2>Soluções para as necessidades <em>do dia a dia.</em></h2></div><p>Escolha o serviço de que precisa. Se a situação exigir um âmbito específico, preparamos uma proposta antes de iniciar o trabalho.</p></div>
-        <div className="catalog-tools"><div className="searchbox"><Search size={18}/><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Pesquisar serviços..." aria-label="Pesquisar serviços"/></div><div className="category-scroll">{categories.map((c) => <button key={c} className={category === c ? "filter-chip active" : "filter-chip"} onClick={() => setCategory(c)}>{c}</button>)}</div><div className="category-scroll modality-filters" aria-label="Filtrar por modalidade">{modalities.map((m) => <button key={m} className={modality === m ? "filter-chip active" : "filter-chip"} onClick={() => setModality(m)}>{m}</button>)}</div></div>
-        <div className="service-grid">{filtered.map((s, i) => {const Icon = s.icon; return <article className="service-card" key={s.title}><div className="service-card-top"><div className="service-icon"><Icon size={23}/></div><span className="service-index">0{i + 1}</span></div><span className="service-category">{s.category}</span><h3>{s.title}</h3><p>{s.description}</p><div className="service-card-foot"><span>{s.type}</span><button onClick={() => startRequest(s.title)} aria-label={"Solicitar " + s.title}><ArrowRight size={18}/></button></div></article>})}</div>
-        {filtered.length === 0 && <div className="empty-state">Não encontrámos serviços com esses critérios. Experimente outra pesquisa.</div>}
-        <div className="center-cta"><span>Não encontrou o serviço de que precisa?</span><button className="button button-outline" onClick={() => startRequest("Pedido personalizado")}>Fale connosco <ArrowRight size={16}/></button></div>
-      </div></section>
+      <section className="section services-section" id="servicos">
+        <div className="container">
+          <div className="section-heading services-heading">
+            <div><div className="eyebrow"><span></span> O QUE FAZEMOS</div><h2>Encontre apoio para <em>o que precisa resolver.</em></h2></div>
+            <p>Comece pela necessidade da sua empresa. Em cada área, veja as soluções disponíveis e escolha a que melhor corresponde à sua situação.</p>
+          </div>
+          {!activeServiceCategory ? (
+            <div className="service-journey-grid">
+              <button className="service-journey-card" onClick={() => setActiveServiceCategory("Formalização")}><span className="journey-icon"><Building2 size={25}/></span><span className="journey-number">01</span><h3>Quero abrir ou regularizar a minha empresa</h3><p>Formalização, alterações de dados, licenças e regularização de pendências.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+              <button className="service-journey-card" onClick={() => setActiveServiceCategory("Contabilidade")}><span className="journey-icon"><Calculator size={25}/></span><span className="journey-number">02</span><h3>Preciso de organizar a contabilidade</h3><p>Acompanhamento mensal ou organização de registos contabilísticos em atraso.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+              <button className="service-journey-card" onClick={() => setActiveServiceCategory("Fiscalidade")}><span className="journey-icon"><ReceiptText size={25}/></span><span className="journey-number">03</span><h3>Preciso de tratar de assuntos fiscais</h3><p>Declarações, obrigações fiscais em falta e respostas a notificações.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+              <button className="service-journey-card" onClick={() => setActiveServiceCategory("Recursos Humanos")}><span className="journey-icon"><UsersRound size={25}/></span><span className="journey-number">04</span><h3>Preciso de apoio com trabalhadores</h3><p>Salários, admissões, saídas e procedimentos administrativos de RH.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+              <button className="service-journey-card" onClick={() => setActiveServiceCategory("Concursos e fornecedores")}><span className="journey-icon"><FileCheck2 size={25}/></span><span className="journey-number">05</span><h3>Quero fornecer empresas ou concorrer</h3><p>Preparação de dossier de fornecedor e organização documental para concursos.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+              <button className="service-journey-card service-journey-featured" onClick={() => setActiveServiceCategory("Gestão empresarial")}><span className="journey-icon"><BriefcaseBusiness size={25}/></span><span className="journey-number">06</span><h3>Preciso de apoio em várias áreas</h3><p>Soluções coordenadas para tratar de várias necessidades num só pedido.</p><span className="journey-link">Ver soluções <ArrowRight size={17}/></span></button>
+            </div>
+          ) : (
+            <div className="service-detail-view">
+              <div className="service-detail-head"><div><span className="detail-eyebrow">ÁREA DE SERVIÇO</span><h3>{activeServiceCategory}</h3><p>Escolha uma solução para ver o próximo passo e solicitar uma proposta.</p></div><button className="service-back-button" onClick={() => setActiveServiceCategory(null)}><ArrowRight size={16}/> Todas as áreas</button></div>
+              <div className="service-grid">{services.filter(s => s.category === activeServiceCategory).map((s, i) => {const Icon = s.icon; return <article className="service-card" key={s.title}><div className="service-card-top"><div className="service-icon"><Icon size={23}/></div><span className="service-index">{String(i + 1).padStart(2,"0")}</span></div><h3>{s.title}</h3><p>{s.description}</p><div className="service-card-foot"><span>{s.type}</span><button onClick={() => startRequest(s.title)} aria-label={"Solicitar " + s.title}><ArrowRight size={18}/></button></div><button className="service-card-action" onClick={() => startRequest(s.title)}>Solicitar esta solução <ArrowRight size={15}/></button></article>})}
+              {activeServiceCategory === "Gestão empresarial" && <article className="service-card service-custom-card"><div className="service-icon"><BriefcaseBusiness size={23}/></div><h3>Combinar várias necessidades</h3><p>Explique-nos os assuntos que pretende resolver e prepararemos uma proposta com âmbito definido.</p><div className="service-card-foot"><span>Proposta personalizada</span><button onClick={() => startRequest("Solução empresarial combinada")} aria-label="Solicitar solução combinada"><ArrowRight size={18}/></button></div><button className="service-card-action" onClick={() => startRequest("Solução empresarial combinada")}>Descrever a minha necessidade <ArrowRight size={15}/></button></article>}
+              </div>
+            </div>
+          )}
+          <div className="services-help"><div><strong>Não sabe por onde começar?</strong><span>Descreva a situação e ajudamos a definir o serviço adequado.</span></div><button className="button button-outline" onClick={() => startRequest("Pedido personalizado")}>Pedir orientação <ArrowRight size={16}/></button></div>
+        </div>
+      </section>
 
       <section className="section packages-section" id="pacotes"><div className="container"><div className="section-heading"><div><div className="eyebrow"><span></span> MODELOS DE CONTRATAÇÃO</div><h2>O formato certo para <em>cada necessidade.</em></h2></div><p>Contrate uma tarefa específica ou assegure apoio recorrente. Os limites de cada pacote são definidos com transparência.</p></div>
         <div className="package-grid">{packages.map((p, i) => <article className={"package-card " + (i === 2 ? "package-featured" : "")} key={p.name}><div className="package-label">{p.label}</div><h3>{p.name}</h3><div className="package-price">{p.price}</div><p>{p.text}</p><div className="package-rule"></div><ul>{p.features.map(f => <li key={f}><Check size={16}/>{f}</li>)}</ul><button className={i === 2 ? "button" : "button button-outline"} onClick={() => startRequest(p.name)}>Solicitar proposta <ArrowRight size={16}/></button></article>)}</div>
