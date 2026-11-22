@@ -51,3 +51,8 @@ img{max-width:100%;height:auto}
 .faq-item p{max-width:780px;margin:-3px 0 22px;color:var(--muted);font-size:13px;line-height:1.9}
 .faq-item summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media(max-width:600px){.faq-item summary{font-size:14px;padding:19px 40px 19px 0}.faq-item p{font-size:12px;line-height:1.8}}
+
+
+/* Fichas comerciais: entregáveis e limites apresentados de forma legível */
+.service-deliverables{margin:18px 0 16px;padding:14px 15px;background:#f5f7f9;border-left:2px solid var(--gold);border-radius:2px}.service-deliverables strong{display:block;color:var(--navy);font-size:11px;letter-spacing:.02em;margin-bottom:8px}.service-deliverables ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}.service-deliverables li{position:relative;padding-left:17px;color:#536174;font-size:11px;line-height:1.55}.service-deliverables li:before{content:'✓';position:absolute;left:0;top:0;color:var(--blue);font-weight:700}.service-card{display:flex;flex-direction:column}.service-card-foot{margin-top:auto}
+@media(max-width:640px){.service-deliverables{padding:12px;margin-top:14px}.service-deliverables li{font-size:12px}}
