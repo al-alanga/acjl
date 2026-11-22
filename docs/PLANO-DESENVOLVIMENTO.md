@@ -164,3 +164,14 @@
 - [ ] Configurar a URL de redireccionamento de recuperação no Supabase Auth para o domínio de produção.
 - [ ] Confirmar que `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` existem nos ambientes correctos do Vercel; a chave service-role deve permanecer exclusivamente no servidor.
 - [ ] Executar lint, TypeScript e build com resultados verificáveis; a integração GitHub disponível não devolveu execuções de Actions e o estado Vercel continua pendente.
+
+
+## Decisão de produto — experiência leve de solicitação (22/11/2026)
+- [x] Removido o acesso “Área do cliente” da navegação principal e do rodapé.
+- [x] Removida do website a dependência de sessão Supabase para submeter pedidos de proposta.
+- [x] Simplificada a API de pedidos para receber solicitações públicas sem cadastro, autenticação ou associação a conta.
+- [x] Removida a página de Área do Cliente; não faz parte do produto aprovado nesta fase.
+- [ ] Confirmar se o projecto já tinha políticas/rotas de autenticação activadas no Supabase; não remover utilizadores nem dados existentes sem autorização explícita.
+- [ ] Verificar lint, TypeScript, build e implantação após as alterações.
+- [ ] Manter apenas os dados de contacto estritamente necessários, a informação sobre utilização dos dados e uma referência de pedido para seguimento directo pela ACJL.
+- Decisão: o website é um canal de apresentação e recepção de solicitações, não um portal de cliente nem um backoffice.
