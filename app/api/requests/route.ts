@@ -35,10 +35,10 @@ export async function POST(request: Request) {
   const authorization = request.headers.get("authorization");
   let customerId: string | null = null;
   if (authorization) {
-    const accessToken = authorization.match(/^Bearer\\s+(.+)$/i)?.[1];
+    const accessToken = authorization.startsWith("Bearer ") ? authorization.slice(7).trim() : "";
     if (!accessToken || !anonKey) return NextResponse.json({ error: "Não foi possível validar a sessão do cliente." }, { status: 401 });
     try {
-      const userResponse = await fetch(url.replace(/\\/$/, "") + "/auth/v1/user", {
+      const userResponse = await fetch((url.endsWith("/") ? url.slice(0, -1) : url) + "/auth/v1/user", {
         headers: { apikey: anonKey, Authorization: "Bearer " + accessToken },
         cache: "no-store",
       });
