@@ -11,13 +11,13 @@
 ## Fase 1 — Base institucional e visual
 - [x] Inicializar aplicação Next.js, React e TypeScript.
 - [x] Criar primeira página institucional e catálogo demonstrativo.
-- [ ] Colocar o logótipo original na pasta pública e usá-lo como imagem na navegação e no rodapé.
+- [x] Colocar o ficheiro de imagem do logótipo na pasta pública e usá-lo como imagem na navegação e no rodapé.
 - [ ] Afinar a hierarquia visual para seguir a referência ALINVEST sem copiar a identidade nem o conteúdo.
 - [ ] Rever todos os textos, contactos e preços provisórios antes da publicação pública.
 - Critério de aceitação: página responsiva, identidade fiel ao logótipo original, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
 
 ## Fase 2 — Catálogo comercial definitivo
-- [ ] Criar registo estruturado de serviços, modalidades, limites, exclusões, documentos necessários, prazos e entregáveis.
+- [ ] Criar registo estruturado de serviços, modalidades, limites, exclusões, documentos necessários, prazos e entregáveis. (O catálogo inicial já foi ampliado; falta formalizar os dados e regras.)
 - [ ] Diferenciar: serviço avulso; pacote mensal especializado; pacote combinado avulso; pacote combinado mensal.
 - [ ] Eliminar definitivamente qualquer serviço autónomo de diagnóstico.
 - [ ] Definir regras de escalonamento para pedidos complexos, urgentes ou fora do âmbito, com orçamento prévio.
