@@ -130,7 +130,30 @@ create policy "Customers insert own profile"
 on public.customer_profiles for insert to authenticated
 with check (auth.uid() = id);
 
--- Requests, documents, payment transactions, and event history intentionally have
--- no client-facing table policies yet. Use a trusted server-side route/service-role
--- or add narrowly scoped policies after the authentication and staff-role model is
--- implemented. Never expose service-role credentials in the browser.
+-- Customers may read only their own requests and public event/document metadata.
+-- Writes and staff-only operations remain server-side; service-role secrets never reach the browser.
+create policy "Customers read own service requests"
+on public.service_requests for select to authenticated
+using (auth.uid() = customer_id);
+
+create policy "Customers read public events for own requests"
+on public.request_events for select to authenticated
+using (
+  internal_note = false
+  and exists (
+    select 1 from public.service_requests r
+    where r.id = request_id and r.customer_id = auth.uid()
+  )
+);
+
+create policy "Customers read own request document metadata"
+on public.request_documents for select to authenticated
+using (
+  exists (
+    select 1 from public.service_requests r
+    where r.id = request_id and r.customer_id = auth.uid()
+  )
+);
+
+-- No client-facing policies are granted for payment_transactions or staff-only
+-- updates. Keep writes and privileged operations on trusted server-side routes.
