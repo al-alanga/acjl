@@ -23,9 +23,12 @@
 - [x] Formalizar modalidades, serviços, limites e regras comerciais de referência em `docs/CATALOGO-COMERCIAL.md`.
 - [ ] Validar conteúdo, entregáveis, limites, prazos e preços com a ACJL antes de publicar o catálogo definitivo.
 - [x] Diferenciar: serviço avulso; pacote mensal especializado; pacote combinado avulso; pacote combinado mensal.
-- [ ] Eliminar definitivamente qualquer serviço autónomo de diagnóstico.
-- [ ] Definir regras de escalonamento para pedidos complexos, urgentes ou fora do âmbito, com orçamento prévio.
+- [x] Excluir serviços autónomos de diagnóstico do catálogo e das regras comerciais.
+- [x] Documentar regras de escalonamento para urgências, volumes extraordinários, períodos em atraso e trabalho fora do âmbito; exigir orçamento prévio.
 - [ ] Não publicar preços de referência como preços finais sem validação comercial da ACJL.
+- [x] Acrescentada matriz de especificação por oferta, com resultado, entregáveis mínimos, limites a definir e exclusões.
+- [x] Acrescentadas regras obrigatórias para propostas, responsabilidades do cliente, prazos, pagamentos e revisão profissional.
+- [ ] Validar os limites operacionais, prazos, preços e condições comerciais com a ACJL.
 - Critério de aceitação: cada produto explica qual problema resolve, o que será entregue, o que não está incluído e como é calculado o preço.
 
 ## Fase 3 — Pedidos e área do cliente
@@ -114,3 +117,12 @@
 - Alterações adicionais: acessibilidade de teclado/foco, menu móvel com atributos ARIA, salvaguardas de movimento reduzido, metadados de partilha e SEO.
 - Bloqueio de publicação: a consulta ao Vercel não encontrou projecto ligado ao repositório `al-alanga/acjl`; por isso não foi possível confirmar build nem visualização publicada.
 - Não alterado nesta fase: base de dados, autenticação, pagamentos e funcionalidades de backend.
+
+## Registo de validação técnica — 22/11/2026
+- [x] Inspeccionados os ficheiros principais da página inicial, layout, configuração TypeScript, configuração ESLint e endpoint de pedidos.
+- [x] Confirmados scripts de build e lint em `package.json`.
+- [x] Criado workflow GitHub Actions `.github/workflows/quality.yml` para executar `npm run lint` e `npm run build` em pushes para `main`, pull requests e execução manual.
+- [ ] Build local e lint executados com sucesso — pendente; o ambiente desta sessão não conseguiu executar o projecto localmente.
+- [ ] Resultado do workflow GitHub Actions confirmado — pendente de execução/resultado.
+- [ ] Deployment Vercel validado — pendente; a ligação Vercel acessível não encontrou projecto associado ao repositório `al-alanga/acjl`.
+- Estado: os testes foram preparados para execução automatizada, mas a Fase 1 não pode ser declarada tecnicamente fechada até o lint e o build terminarem com sucesso e o deployment ser validado.
