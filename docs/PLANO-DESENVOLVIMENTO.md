@@ -93,3 +93,11 @@
 - [x] Opções detalhadas aparecem depois da escolha do modelo, com acções claras para pedir proposta.
 - [x] Mantidos preços “Sob proposta” até aprovação comercial.
 - [ ] Validar visualmente em produção e executar build de verificação.
+
+
+## Website — rodapé (22/11/2026)
+- [x] Reorganizada a hierarquia do rodapé com descrição institucional e CTA principal para contacto.
+- [x] Separadas as ligações de navegação das áreas de serviço.
+- [x] Melhorado o contraste, a legibilidade, os estados hover e o comportamento responsivo.
+- [x] Criada faixa inferior distinta para copyright e ligações informativas.
+- [ ] Validar a renderização final e os destinos das ligações no site publicado.
