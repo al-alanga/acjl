@@ -22,12 +22,14 @@ const services = [
 
 const packages = [
   { name: "Contabilidade & Fiscalidade", label: "Mensal especializado", price: "Sob proposta", text: "Acompanhamento contabilístico e fiscal ajustado ao volume e às obrigações da empresa.", features: ["Registos contabilísticos mensais", "Organização de documentos", "Obrigações fiscais contratadas", "Resumo periódico de execução"] },
-  { name: "Recursos Humanos", label: "Mensal especializado", price: "Sob orçamento", text: "Apoio recorrente à gestão administrativa dos trabalhadores, com limites claros.", features: ["Processamento salarial", "Admissões e saídas", "Férias e faltas", "Procedimentos aplicáveis do INSS"] },
-  { name: "Gestão Empresarial Integrada", label: "Pacote combinado mensal", price: "Sob orçamento", text: "Uma solução coordenada para empresas que precisam de várias funções num único parceiro.", features: ["Contabilidade e fiscalidade", "Recursos Humanos", "Coordenação administrativa", "Relatório consolidado"] },
+  { name: "Fiscalidade Recorrente", label: "Mensal especializado", price: "Sob proposta", text: "Acompanhamento periódico das obrigações fiscais incluídas no contrato e dos respectivos prazos.", features: ["Calendário de obrigações contratadas", "Preparação das declarações incluídas", "Organização dos comprovativos", "Avisos sobre prazos acordados"] },
+  { name: "Recursos Humanos", label: "Mensal especializado", price: "Sob proposta", text: "Apoio recorrente à gestão administrativa dos trabalhadores, com limites claros.", features: ["Processamento salarial", "Admissões e saídas acordadas", "Férias e faltas", "Procedimentos aplicáveis do INSS"] },
+  { name: "Gestão Empresarial Integrada", label: "Pacote combinado mensal", price: "Sob proposta", text: "Uma solução coordenada para empresas que precisam de várias funções num único parceiro.", features: ["Contabilidade e fiscalidade", "Recursos Humanos", "Coordenação administrativa acordada", "Resumo consolidado da execução"] },
+  { name: "Contabilidade & Gestão Fiscal", label: "Pacote combinado mensal", price: "Sob proposta", text: "Para negócios que querem manter registos contabilísticos e obrigações fiscais acompanhados num único serviço.", features: ["Registos contabilísticos mensais", "Obrigações fiscais abrangidas", "Organização documental", "Ponto periódico sobre pendências do serviço"] },
 ];
 
 const combined = [
-  { name: "Começar o Negócio", text: "Formalização, registos aplicáveis e documentação inicial.", price: "Sob orçamento" },
+  { name: "Começar o Negócio", text: "Formalização, registos aplicáveis e documentação inicial.", price: "Sob proposta" },
   { name: "Preparar para Fornecer Empresas", text: "Dossier de fornecedor e preparação para requisitos de um cliente identificado.", price: "Sob orçamento" },
   { name: "Preparar uma Candidatura", text: "Organização documental para uma oportunidade ou concurso específico.", price: "Sob orçamento" },
   { name: "Colocar a Contabilidade em Ordem", text: "Organização de registos de um período previamente definido.", price: "Sob orçamento" },
@@ -38,11 +40,13 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("Todos");
+  const [modality, setModality] = useState("Todas");
   const [modal, setModal] = useState<string | null>(null);
   const [selected, setSelected] = useState("");
   const [sent, setSent] = useState(false);
   const categories = ["Todos", ...Array.from(new Set(services.map((s) => s.category)))];
-  const filtered = useMemo(() => services.filter((s) => (category === "Todos" || s.category === category) && (s.title + " " + s.description + " " + s.category).toLowerCase().includes(query.toLowerCase())), [category, query]);
+  const modalities = ["Todas", "Avulso", "Mensal", "Avulso combinado"];
+  const filtered = useMemo(() => services.filter((s) => (category === "Todos" || s.category === category) && (modality === "Todas" || s.type.toLowerCase().includes(modality.toLowerCase())) && (s.title + " " + s.description + " " + s.category).toLowerCase().includes(query.toLowerCase())), [category, modality, query]);
 
   function startRequest(name: string) {
     setSelected(name);
@@ -96,7 +100,7 @@ export default function Home() {
       <section className="section intro-section" id="empresa"><div className="container intro-grid"><div><div className="eyebrow"><span></span> SOBRE A ACJL</div><h2>O apoio empresarial deve <em>simplificar.</em></h2></div><div className="intro-copy"><p>A ACJL — Contabilidade & Serviços reúne soluções de apoio à atividade empresarial para que os responsáveis pelos negócios possam dedicar mais tempo aos clientes, às operações e ao crescimento.</p><p>Trabalhamos com serviços avulsos, pacotes mensais especializados e soluções combinadas. Cada contratação deve ter um âmbito claro, entregáveis definidos e condições adequadas à dimensão do trabalho.</p><a className="text-link dark-link" href="#como-funciona">A nossa forma de trabalhar <ArrowRight size={16}/></a></div></div></section>
 
       <section className="section services-section" id="servicos"><div className="container"><div className="section-heading"><div><div className="eyebrow"><span></span> O QUE FAZEMOS</div><h2>Soluções para as necessidades <em>do dia a dia.</em></h2></div><p>Escolha o serviço de que precisa. Se a situação exigir um âmbito específico, preparamos uma proposta antes de iniciar o trabalho.</p></div>
-        <div className="catalog-tools"><div className="searchbox"><Search size={18}/><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Pesquisar serviços..." aria-label="Pesquisar serviços"/></div><div className="category-scroll">{categories.map((c) => <button key={c} className={category === c ? "filter-chip active" : "filter-chip"} onClick={() => setCategory(c)}>{c}</button>)}</div></div>
+        <div className="catalog-tools"><div className="searchbox"><Search size={18}/><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Pesquisar serviços..." aria-label="Pesquisar serviços"/></div><div className="category-scroll">{categories.map((c) => <button key={c} className={category === c ? "filter-chip active" : "filter-chip"} onClick={() => setCategory(c)}>{c}</button>)}</div><div className="category-scroll modality-filters" aria-label="Filtrar por modalidade">{modalities.map((m) => <button key={m} className={modality === m ? "filter-chip active" : "filter-chip"} onClick={() => setModality(m)}>{m}</button>)}</div></div>
         <div className="service-grid">{filtered.map((s, i) => {const Icon = s.icon; return <article className="service-card" key={s.title}><div className="service-card-top"><div className="service-icon"><Icon size={23}/></div><span className="service-index">0{i + 1}</span></div><span className="service-category">{s.category}</span><h3>{s.title}</h3><p>{s.description}</p><div className="service-card-foot"><span>{s.type}</span><button onClick={() => startRequest(s.title)} aria-label={"Solicitar " + s.title}><ArrowRight size={18}/></button></div></article>})}</div>
         {filtered.length === 0 && <div className="empty-state">Não encontrámos serviços com esses critérios. Experimente outra pesquisa.</div>}
         <div className="center-cta"><span>Não encontrou o serviço de que precisa?</span><button className="button button-outline" onClick={() => startRequest("Pedido personalizado")}>Fale connosco <ArrowRight size={16}/></button></div>
