@@ -126,3 +126,20 @@
 - [ ] Resultado do workflow GitHub Actions confirmado — pendente de execução/resultado.
 - [ ] Deployment Vercel validado — pendente; a ligação Vercel acessível não encontrou projecto associado ao repositório `al-alanga/acjl`.
 - Estado: os testes foram preparados para execução automatizada, mas a Fase 1 não pode ser declarada tecnicamente fechada até o lint e o build terminarem com sucesso e o deployment ser validado.
+
+
+## Continuidade em modo bulk — 22/11/2026
+- [x] Adicionado acesso directo à Área do Cliente na navegação principal e no rodapé, apontando para `/area-cliente`.
+- [x] Substituído o pacote mensal redundante “Contabilidade & Gestão Fiscal” por “Administração & Recursos Humanos” na página inicial.
+- [x] Sincronizada a nomenclatura do catálogo comercial com o pacote apresentado no website.
+- [x] Mantida a política de preços “Sob proposta”, sem criar preços finais sem aprovação.
+- [ ] Confirmar build e lint através de execução real do workflow; configuração do workflow, por si só, não comprova sucesso.
+- [ ] Resolver a ligação do Vercel ao repositório `al-alanga/acjl`: o contexto disponível só apresenta o projecto `build`, enquanto o estado de verificação do commit ACJL aparece como pendente e a integração não consegue abrir essa implantação.
+- [ ] Após restabelecer a ligação Vercel, validar navegação, formulário, área do cliente, domínio e comportamento em dispositivos móveis.
+- [ ] Configurar e testar as variáveis Supabase no ambiente publicado antes de prometer registo real de pedidos ou autenticação funcional.
+
+### Bloqueios e critérios para declarar a Fase 1 concluída
+- Não considerar “publicado” ou “testado” sem um URL de implantação acessível e resultado verificável de build/lint.
+- A Área do Cliente está implementada na interface, mas depende das variáveis públicas Supabase e das políticas/configuração de autenticação.
+- O formulário depende de `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` no servidor; sem elas, devolve um erro controlado e não regista o pedido.
+- O conteúdo comercial e os limites operacionais continuam sujeitos à aprovação final da ACJL.
