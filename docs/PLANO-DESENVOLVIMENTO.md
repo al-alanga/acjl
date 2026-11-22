@@ -26,9 +26,9 @@
 - Critério de aceitação: cada produto explica qual problema resolve, o que será entregue, o que não está incluído e como é calculado o preço.
 
 ## Fase 3 — Pedidos e área do cliente
-- [x] Desenhar o modelo inicial de dados em `supabase/schema.sql` (ainda não aplicado a uma base de dados).
-- [ ] Confirmar e activar o projecto Supabase correcto para ACJL antes de aplicar a migração.
-- [ ] Ligar o formulário actual a um endpoint seguro; actualmente é apenas uma demonstração local e não transmite dados.
+- [x] Desenhar e aplicar o modelo inicial de dados no projecto Supabase ACJL; seis tabelas com RLS activo.
+- [x] Confirmar o projecto Supabase ACJL e aplicar o esquema inicial.
+- [x] Ligar o formulário a `POST /api/requests`, com validação de dados e gravação server-side quando as credenciais estiverem configuradas.\n- [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` nos ambientes local e Vercel; testar o fluxo real ponta a ponta.
 - [ ] Implementar conta de cliente, autenticação, recuperação de acesso e perfis.
 - [ ] Permitir anexar documentos e consultar o histórico e estado dos pedidos.
 - [ ] Criar backoffice interno para triagem, atribuição, mensagens, prazos e entrega.
@@ -49,7 +49,7 @@
 - [ ] Comunicar claramente que decisões de entidades públicas e resultados de concursos não são garantidos.
 
 ## Fase 6 — Testes e publicação
-- [ ] Configurar variáveis de ambiente e ambientes de desenvolvimento/produção.
+- [ ] Configurar variáveis de ambiente e ambientes de desenvolvimento/produção.\n- [ ] Confirmar o projecto Vercel associado ao repositório ACJL; a listagem actual não mostrou um projecto ACJL identificado.
 - [ ] Executar testes de build, lint, formulários, permissões e fluxos de pagamento.
 - [ ] Testar em computador e telemóvel.
 - [ ] Rever privacidade, segurança, termos de serviço e retenção de documentos.
