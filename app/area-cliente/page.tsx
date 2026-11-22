@@ -26,7 +26,6 @@ const statusLabels: Record<string, string> = {
 };
 
 export default function CustomerPortalPage() {
-  const router = useRouter();
   const [mode, setMode] = useState<"login" | "signup" | "reset" | "update">("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
