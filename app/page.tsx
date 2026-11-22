@@ -158,6 +158,33 @@ export default function Home() {
 
       <section className="section process-section" id="como-funciona"><div className="container process-grid"><div className="process-copy"><div className="eyebrow"><span></span> COMO FUNCIONA</div><h2>Do pedido à entrega, <em>com clareza.</em></h2><p>Um processo simples para saber o que está a contratar e o que acontece a seguir.</p><button className="button" onClick={() => startRequest("")}>Iniciar um pedido <ArrowRight size={16}/></button></div><div className="steps"><div className="step"><span>01</span><div><h3>Escolha a solução</h3><p>Selecione um serviço ou descreva a necessidade da sua empresa.</p></div></div><div className="step"><span>02</span><div><h3>Confirme o âmbito e o preço</h3><p>Receba as condições, os entregáveis e os custos antes da execução.</p></div></div><div className="step"><span>03</span><div><h3>Envie os dados necessários</h3><p>Partilhe a informação e a documentação exigidas para o serviço.</p></div></div><div className="step"><span>04</span><div><h3>Receba actualizações</h3><p>A equipa da ACJL mantém o contacto para esclarecer dúvidas e informar sobre os próximos passos.</p></div></div></div></div></section>
 
+      <section className="section faq-section" id="perguntas-frequentes">
+        <div className="container">
+          <div className="section-heading">
+            <div><div className="eyebrow"><span></span> ANTES DE SOLICITAR</div><h2>Respostas para <em>começar com clareza.</em></h2></div>
+            <p>Conheça o processo de contratação e o que pode influenciar a proposta para a sua empresa.</p>
+          </div>
+          <div className="faq-list">
+            <details className="faq-item">
+              <summary>Como são definidos os preços?</summary>
+              <p>Os preços são apresentados sob proposta, depois de compreendermos o serviço, o volume de trabalho, os períodos envolvidos e os entregáveis necessários. Não avançamos com trabalho adicional sem acordar previamente as condições.</p>
+            </details>
+            <details className="faq-item">
+              <summary>O que acontece depois de enviar o pedido?</summary>
+              <p>A equipa da ACJL analisa a informação e entra em contacto para esclarecer a necessidade, confirmar o âmbito e apresentar as condições aplicáveis. O envio do formulário não cria, por si só, uma obrigação de contratação.</p>
+            </details>
+            <details className="faq-item">
+              <summary>Que documentos devo enviar no formulário?</summary>
+              <p>Não envie documentos confidenciais através do formulário. Descreva apenas a necessidade; se forem necessários documentos, a equipa indicará os elementos e o canal adequado para os partilhar.</p>
+            </details>
+            <details className="faq-item">
+              <summary>A ACJL garante licenças, certidões ou adjudicações?</summary>
+              <p>Não. Alguns procedimentos dependem de autoridades públicas, clientes empresariais ou outras entidades. A ACJL pode apoiar a preparação e o acompanhamento do processo, mas não garante decisões que dependem de terceiros.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section className="cta-section"><div className="container cta-inner"><div><div className="eyebrow eyebrow-light"><span></span> VAMOS TRABALHAR JUNTOS</div><h2>Tem uma necessidade empresarial para resolver?</h2><p>Conte-nos o que precisa. Ajudamos a identificar o serviço adequado e a definir os próximos passos.</p></div><button className="button button-gold" onClick={() => startRequest("")}>Pedir uma proposta <ArrowRight size={17}/></button></div></section>
 
       <footer className="footer" id="contactos"><div className="container footer-main"><div className="footer-brand"><a className="brand brand-footer" href="#inicio" aria-label="ACJL — voltar ao início"><span className="footer-brand-name">ACJL</span><span className="footer-brand-subtitle">CONTABILIDADE &amp; SERVIÇOS</span></a><p>Apoio contabilístico, fiscal e administrativo para empresas que precisam de clareza, organização e acompanhamento em Moçambique.</p><button className="footer-primary-cta" onClick={() => startRequest("")}>Falar com a ACJL <ArrowRight size={16}/></button></div><div className="footer-column"><h4>Explore o site</h4><a href="#empresa">Sobre a ACJL</a><a href="#servicos">O que fazemos</a><a href="#pacotes">Modelos de contratação</a><a href="#como-funciona">Como funciona</a></div><div className="footer-column"><h4>Encontre uma solução</h4><a href="#servicos">Formalização empresarial</a><a href="#servicos">Contabilidade</a><a href="#servicos">Fiscalidade</a><a href="#servicos">Recursos Humanos</a><a href="#servicos">Concursos e fornecedores</a></div><div className="footer-column footer-contact-column"><h4>Contactos</h4><p className="footer-contact-note">Tem uma questão ou precisa de uma proposta? Envie-nos o seu pedido.</p><span className="footer-location"><MapPin size={16}/> Maputo, Moçambique</span><button className="footer-contact" onClick={() => startRequest("")}><Mail size={16}/> Solicitar contacto <ArrowRight size={14}/></button></div></div><div className="footer-bottom-wrap"><div className="container footer-bottom"><span>© {new Date().getFullYear()} ACJL — Contabilidade &amp; Serviços</span><span className="footer-signoff">Apoio empresarial com clareza e propósito.</span></div></div></footer>
