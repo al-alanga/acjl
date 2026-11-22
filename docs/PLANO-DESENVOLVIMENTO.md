@@ -67,3 +67,13 @@
 - Diagnóstico pago como produto isolado.
 - Automatização de decisões que dependem de entidades públicas.
 - Publicação de preços finais não aprovados pela ACJL.
+
+
+## Estado de implementação — 22/11/2026
+- [x] Criada página inicial da Área do Cliente em `/area-cliente` com registo, login e listagem de pedidos ligados à conta.
+- [x] Adicionado cliente Supabase para autenticação no navegador; depende das variáveis públicas de ambiente.
+- [x] Adicionadas políticas RLS de leitura dos próprios pedidos, eventos públicos e metadados dos documentos.
+- [ ] Associar com segurança os novos pedidos submetidos por clientes autenticados ao respectivo `customer_id`.
+- [ ] Configurar confirmação de email e URL de redireccionamento no Supabase Auth.
+- [ ] Configurar as variáveis no Vercel e executar build e testes reais.
+- [ ] Construir área interna de backoffice e fluxo de actualização de estados.
