@@ -17,16 +17,18 @@
 - Critério de aceitação: página responsiva, identidade fiel ao logótipo original, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
 
 ## Fase 2 — Catálogo comercial definitivo
-- [ ] Criar registo estruturado de serviços, modalidades, limites, exclusões, documentos necessários, prazos e entregáveis. (O catálogo inicial já foi ampliado; falta formalizar os dados e regras.)
-- [ ] Diferenciar: serviço avulso; pacote mensal especializado; pacote combinado avulso; pacote combinado mensal.
+- [x] Formalizar modalidades, serviços, limites e regras comerciais de referência em `docs/CATALOGO-COMERCIAL.md`.
+- [ ] Validar conteúdo, entregáveis, limites, prazos e preços com a ACJL antes de publicar o catálogo definitivo.
+- [x] Diferenciar: serviço avulso; pacote mensal especializado; pacote combinado avulso; pacote combinado mensal.
 - [ ] Eliminar definitivamente qualquer serviço autónomo de diagnóstico.
 - [ ] Definir regras de escalonamento para pedidos complexos, urgentes ou fora do âmbito, com orçamento prévio.
 - [ ] Não publicar preços de referência como preços finais sem validação comercial da ACJL.
 - Critério de aceitação: cada produto explica qual problema resolve, o que será entregue, o que não está incluído e como é calculado o preço.
 
 ## Fase 3 — Pedidos e área do cliente
-- [ ] Criar base de dados e modelo de estados de pedido.
-- [ ] Criar formulário de pedido ligado ao backend, com validação e consentimento.
+- [x] Desenhar o modelo inicial de dados em `supabase/schema.sql` (ainda não aplicado a uma base de dados).
+- [ ] Confirmar e activar o projecto Supabase correcto para ACJL antes de aplicar a migração.
+- [ ] Ligar o formulário actual a um endpoint seguro; actualmente é apenas uma demonstração local e não transmite dados.
 - [ ] Implementar conta de cliente, autenticação, recuperação de acesso e perfis.
 - [ ] Permitir anexar documentos e consultar o histórico e estado dos pedidos.
 - [ ] Criar backoffice interno para triagem, atribuição, mensagens, prazos e entrega.
