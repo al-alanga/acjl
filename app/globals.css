@@ -25,3 +25,16 @@
 @media(max-width:1000px){.footer-main{grid-template-columns:1.2fr 1fr;gap:36px 50px}.footer-brand{max-width:420px}}
 @media(max-width:760px){.footer-main{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:43px;padding-bottom:35px}.footer-brand{grid-column:1/-1;max-width:440px}.footer-brand>p{margin-top:16px}.footer-bottom{align-items:flex-start;flex-direction:column;gap:9px;padding-top:17px;padding-bottom:17px}.footer-legal{gap:16px}.footer-signoff{margin-top:1px}}
 @media(max-width:420px){.footer-main{grid-template-columns:1fr;gap:26px}.footer-brand{grid-column:auto}.footer-column{gap:10px}.footer-column h4{margin-bottom:4px}}
+
+
+/* Aplicação do logótipo original ACJL com fundo transparente */
+.brand-header{display:flex;align-items:center;justify-content:flex-start;min-width:190px;width:210px}
+.brand-logo{display:block;width:100%;height:62px;object-fit:contain;object-position:left center}
+.brand-footer{width:205px;min-width:0;display:flex;align-items:flex-start}
+.footer-logo-panel{display:flex;align-items:center;justify-content:flex-start;width:100%;min-height:76px;padding:8px 12px;background:#fff;border:1px solid #e3e8ed;border-radius:2px}
+.footer-brand-logo{display:block;width:100%;max-width:180px;height:58px;object-fit:contain;object-position:left center}
+@media(max-width:760px){
+  .brand-header{width:180px;min-width:0}
+  .brand-logo{height:54px}
+  .brand-footer{width:205px}
+}
