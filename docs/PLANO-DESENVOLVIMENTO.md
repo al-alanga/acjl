@@ -143,3 +143,13 @@
 - A Área do Cliente está implementada na interface, mas depende das variáveis públicas Supabase e das políticas/configuração de autenticação.
 - O formulário depende de `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` no servidor; sem elas, devolve um erro controlado e não regista o pedido.
 - O conteúdo comercial e os limites operacionais continuam sujeitos à aprovação final da ACJL.
+
+
+## Execução prioritária — actualização técnica
+- [x] Adicionados cabeçalhos HTTP de segurança no Next.js: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` e `Permissions-Policy`. Referência: documentação oficial Next.js sobre headers.
+- [x] Reforçado o workflow de qualidade para executar verificação explícita de TypeScript (`npx tsc --noEmit`) entre lint e build.
+- [x] Confirmado que a rota de pedidos valida campos, limita comprimentos, verifica formato de email e não expõe a chave service-role no navegador.
+- [ ] Ainda não foi possível executar o workflow a partir desta integração nem obter logs de compilação; não declarar sucesso técnico até haver um resultado do GitHub Actions.
+- [ ] A verificação Vercel do commit mais recente continua pendente/falhada e não é possível abrir a implantação a partir da equipa actualmente ligada.
+- [ ] O formulário público ainda não associa automaticamente pedidos à conta autenticada; isso deve ser implementado e testado antes de prometer histórico integrado.
+- [ ] Confirmar configuração do Supabase Auth, variáveis de ambiente e domínio de redireccionamento no ambiente correcto.
