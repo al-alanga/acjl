@@ -10,12 +10,15 @@
 
 ## Fase 1 — Base institucional e visual
 - [x] Inicializar aplicação Next.js, React e TypeScript.
-- [x] Criar primeira página institucional e catálogo demonstrativo.
-- [x] Colocar o ficheiro de imagem do logótipo original na pasta pública e usá-lo como imagem na navegação e no rodapé.\n- [x] Reforçar a aplicação fiel do logótipo no cabeçalho e remover lettering “ACJL” decorativo que podia parecer uma versão recriada da marca.
-- [ ] Afinar a hierarquia visual para seguir a referência ALINVEST sem copiar a identidade nem o conteúdo.
-- [ ] Rever todos os textos, contactos e preços provisórios antes da publicação pública.
-- Critério de aceitação: página responsiva, identidade fiel ao logótipo original, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
-
+- [x] Criar a página institucional com navegação por necessidades, modelos de contratação e chamadas para acção.
+- [x] Refinar o rodapé, hierarquia visual, estados interactivos e adaptação a ecrãs pequenos.
+- [x] Melhorar acessibilidade de navegação por teclado, foco visível e comportamento do menu móvel.
+- [x] Uniformizar a linguagem pública dos preços para “Sob proposta”.
+- [x] Adicionar metadados SEO/Open Graph e idioma documental português de Moçambique (pt-MZ).
+- [ ] Aplicar o logótipo original conforme a orientação visual aprovada; a versão gráfica foi revertida a pedido do cliente e mantém-se a assinatura textual provisória.
+- [ ] Rever textos e contactos finais com a ACJL.
+- [ ] Validar o aspecto no domínio publicado e confirmar build/deploy; não foi encontrado projecto Vercel ligado ao repositório.
+- Critério de aceitação: página responsiva, identidade conforme a última orientação aprovada, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
 ## Fase 2 — Catálogo comercial definitivo
 - [x] Formalizar modalidades, serviços, limites e regras comerciais de referência em `docs/CATALOGO-COMERCIAL.md`.
 - [ ] Validar conteúdo, entregáveis, limites, prazos e preços com a ACJL antes de publicar o catálogo definitivo.
@@ -28,7 +31,8 @@
 ## Fase 3 — Pedidos e área do cliente
 - [x] Desenhar e aplicar o modelo inicial de dados no projecto Supabase ACJL; seis tabelas com RLS activo.
 - [x] Confirmar o projecto Supabase ACJL e aplicar o esquema inicial.
-- [x] Ligar o formulário a `POST /api/requests`, com validação de dados e gravação server-side quando as credenciais estiverem configuradas.\n- [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` nos ambientes local e Vercel; testar o fluxo real ponta a ponta.
+- [x] Ligar o formulário a `POST /api/requests`, com validação de dados e gravação server-side quando as credenciais estiverem configuradas.
+- [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` nos ambientes local e Vercel; testar o fluxo real ponta a ponta.
 - [ ] Implementar conta de cliente, autenticação, recuperação de acesso e perfis.
 - [ ] Permitir anexar documentos e consultar o histórico e estado dos pedidos.
 - [ ] Criar backoffice interno para triagem, atribuição, mensagens, prazos e entrega.
@@ -49,7 +53,8 @@
 - [ ] Comunicar claramente que decisões de entidades públicas e resultados de concursos não são garantidos.
 
 ## Fase 6 — Testes e publicação
-- [ ] Configurar variáveis de ambiente e ambientes de desenvolvimento/produção.\n- [ ] Confirmar o projecto Vercel associado ao repositório ACJL; a listagem actual não mostrou um projecto ACJL identificado.
+- [ ] Configurar variáveis de ambiente e ambientes de desenvolvimento/produção.
+- [ ] Confirmar o projecto Vercel associado ao repositório ACJL; a listagem actual não mostrou um projecto ACJL identificado.
 - [ ] Executar testes de build, lint, formulários, permissões e fluxos de pagamento.
 - [ ] Testar em computador e telemóvel.
 - [ ] Rever privacidade, segurança, termos de serviço e retenção de documentos.
@@ -99,5 +104,13 @@
 - [x] Reorganizada a hierarquia do rodapé com descrição institucional e CTA principal para contacto.
 - [x] Separadas as ligações de navegação das áreas de serviço.
 - [x] Melhorado o contraste, a legibilidade, os estados hover e o comportamento responsivo.
-- [x] Criada faixa inferior distinta para copyright e ligações informativas.
+- [x] Criada faixa inferior distinta para copyright e assinatura institucional.
+- [x] Removidas ligações provisórias de privacidade/termos que apontavam para a mesma âncora sem apresentar páginas legais.
+- [ ] Criar e validar páginas legais antes de voltar a apresentar essas ligações no rodapé.
 - [ ] Validar a renderização final e os destinos das ligações no site publicado.
+
+## Fecho da Fase 1 — auditoria de 22/11/2026
+- Estado: trabalho de código e conteúdo-base substancialmente concluído; fecho formal ainda condicionado à decisão final sobre a aplicação do logótipo e à validação de produção.
+- Alterações adicionais: acessibilidade de teclado/foco, menu móvel com atributos ARIA, salvaguardas de movimento reduzido, metadados de partilha e SEO.
+- Bloqueio de publicação: a consulta ao Vercel não encontrou projecto ligado ao repositório `al-alanga/acjl`; por isso não foi possível confirmar build nem visualização publicada.
+- Não alterado nesta fase: base de dados, autenticação, pagamentos e funcionalidades de backend.
