@@ -175,3 +175,12 @@
 - [ ] Verificar lint, TypeScript, build e implantação após as alterações.
 - [ ] Manter apenas os dados de contacto estritamente necessários, a informação sobre utilização dos dados e uma referência de pedido para seguimento directo pela ACJL.
 - Decisão: o website é um canal de apresentação e recepção de solicitações, não um portal de cliente nem um backoffice.
+
+
+## Estado actual do produto — prevalece sobre planos anteriores
+A decisão de simplificação substitui as tarefas antigas relacionadas com portal de clientes:
+- Não implementar cadastro, login, recuperação de palavra-passe, histórico reservado nem backoffice de cliente.
+- Não associar pedidos a `auth.users` nem exigir sessão para submeter o formulário.
+- As referências anteriores a testar a Área do Cliente, associar pedidos a contas ou configurar redireccionamento de recuperação ficam obsoletas para esta fase.
+- O formulário público continua a precisar de variáveis seguras do Supabase para persistir os pedidos. Sem essas variáveis, a API deve informar que o serviço está temporariamente indisponível; nunca deve fingir que o pedido foi registado.
+- O estado Vercel consultado no GitHub para o commit `bd9342f169076c193d6b6377b6a05fce5eb272cf` é `success`. A API Vercel ligada ao ChatGPT não consegue listar o deployment, pelo que ainda falta confirmar o URL de produção e testar o formulário em funcionamento.
