@@ -77,3 +77,11 @@
 - [ ] Configurar confirmação de email e URL de redireccionamento no Supabase Auth.
 - [ ] Configurar as variáveis no Vercel e executar build e testes reais.
 - [ ] Construir área interna de backoffice e fluxo de actualização de estados.
+
+
+## Website — simplificação da descoberta de serviços (22/11/2026)
+- [x] Substituída a listagem inicial com pesquisa e filtros simultâneos por seis caminhos orientados às necessidades do visitante.
+- [x] Os serviços específicos aparecem apenas depois de o visitante escolher uma área.
+- [x] Incluídas acções claras para solicitar cada solução e uma alternativa para quem não sabe por onde começar.
+- [x] Layout adaptável para computador, tablet e telemóvel.
+- [ ] Verificar o resultado visual no site publicado e testar o build no Vercel.
