@@ -30,5 +30,7 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: npm run lint
+      - name: TypeScript type check
+        run: npx tsc --noEmit
       - name: Build Next.js
         run: npm run build
