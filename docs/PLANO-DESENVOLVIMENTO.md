@@ -153,3 +153,14 @@
 - [ ] A verificação Vercel do commit mais recente continua pendente/falhada e não é possível abrir a implantação a partir da equipa actualmente ligada.
 - [ ] O formulário público ainda não associa automaticamente pedidos à conta autenticada; isso deve ser implementado e testado antes de prometer histórico integrado.
 - [ ] Confirmar configuração do Supabase Auth, variáveis de ambiente e domínio de redireccionamento no ambiente correcto.
+
+
+## Continuação bulk — autenticação e pedidos (22/11/2026)
+- [x] Acrescentado fluxo de recuperação de palavra-passe na Área do Cliente, com envio de email e definição da nova palavra-passe após retorno do Supabase Auth.
+- [x] O formulário de proposta envia o token da sessão quando o visitante está autenticado.
+- [x] A rota server-side valida o token contra o endpoint de utilizador do Supabase e só associa `customer_id` quando a sessão é válida e o email corresponde à conta.
+- [x] Actualizado o esquema SQL versionado com políticas RLS para o cliente consultar apenas os seus pedidos, eventos não internos e metadados dos seus documentos.
+- [ ] O ficheiro SQL foi actualizado no GitHub, mas as novas políticas ainda não foram aplicadas ao projecto Supabase; a aplicação exige confirmação do ambiente e execução controlada.
+- [ ] Configurar a URL de redireccionamento de recuperação no Supabase Auth para o domínio de produção.
+- [ ] Confirmar que `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` existem nos ambientes correctos do Vercel; a chave service-role deve permanecer exclusivamente no servidor.
+- [ ] Executar lint, TypeScript e build com resultados verificáveis; a integração GitHub disponível não devolveu execuções de Actions e o estado Vercel continua pendente.
