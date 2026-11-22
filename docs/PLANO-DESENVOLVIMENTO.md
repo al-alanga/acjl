@@ -85,3 +85,11 @@
 - [x] Incluídas acções claras para solicitar cada solução e uma alternativa para quem não sabe por onde começar.
 - [x] Layout adaptável para computador, tablet e telemóvel.
 - [ ] Verificar o resultado visual no site publicado e testar o build no Vercel.
+
+
+## Website — modelos de contratação e linguagem dos serviços (22/11/2026)
+- [x] Actualizados os títulos para “Preciso organizar a contabilidade” e “Preciso tratar assuntos fiscais”.
+- [x] Substituída a grelha inicial de pacotes por três caminhos: contratação pontual, apoio mensal recorrente e contratação integrada.
+- [x] Opções detalhadas aparecem depois da escolha do modelo, com acções claras para pedir proposta.
+- [x] Mantidos preços “Sob proposta” até aprovação comercial.
+- [ ] Validar visualmente em produção e executar build de verificação.
