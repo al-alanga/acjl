@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const clean = (value: unknown, max: number) => typeof value === "string" ? value.trim().slice(0, max) : "";
-const validEmail = (value: string) => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value);
+const validEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
   const referenceCode = `ACJL-${new Date().getUTCFullYear()}-${crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase()}`;
   try {
-    const response = await fetch(`${url.replace(/\\/$/, "")}/rest/v1/service_requests`, {
+    const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/service_requests`, {
       method: "POST",
       headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
       body: JSON.stringify({ reference_code: referenceCode, service_name_snapshot: serviceName, customer_name: customerName, business_name: businessName || null, email, phone, description: description || "Pedido de proposta comercial.", status: "received" }),
