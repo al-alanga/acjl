@@ -38,3 +38,16 @@ img{max-width:100%;height:auto}
 @media(prefers-reduced-motion:reduce){.service-journey-card:hover,.contract-model-card:hover,.button:hover{transform:none}}
 
 .portal-text-button{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:8px 0;border:0;background:transparent;color:#07517e;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.portal-text-button:hover{color:#061b35}.portal-text-button:focus-visible{outline:3px solid #c5a044;outline-offset:3px}
+
+
+/* Frequently asked questions */
+.faq-section{background:#fff}
+.faq-list{max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:0 4px}
+.faq-item summary{position:relative;list-style:none;cursor:pointer;padding:22px 42px 22px 0;color:var(--navy);font-size:15px;font-weight:700;line-height:1.5}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:27px;height:27px;border:1px solid #dce2e8;color:var(--blue);font-size:20px;font-weight:400}
+.faq-item[open] summary:after{content:"−";border-color:var(--gold);color:var(--navy)}
+.faq-item p{max-width:780px;margin:-3px 0 22px;color:var(--muted);font-size:13px;line-height:1.9}
+.faq-item summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:600px){.faq-item summary{font-size:14px;padding:19px 40px 19px 0}.faq-item p{font-size:12px;line-height:1.8}}
