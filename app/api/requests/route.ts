@@ -27,16 +27,35 @@ export async function POST(request: Request) {
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {
     return NextResponse.json({ error: "O formulário ainda não está ligado à base de dados. A equipa técnica precisa configurar as variáveis seguras do Supabase no ambiente de produção." }, { status: 503 });
   }
 
+  const authorization = request.headers.get("authorization");
+  let customerId: string | null = null;
+  if (authorization) {
+    const accessToken = authorization.match(/^Bearer\\s+(.+)$/i)?.[1];
+    if (!accessToken || !anonKey) return NextResponse.json({ error: "Não foi possível validar a sessão do cliente." }, { status: 401 });
+    try {
+      const userResponse = await fetch(url.replace(/\\/$/, "") + "/auth/v1/user", {
+        headers: { apikey: anonKey, Authorization: "Bearer " + accessToken },
+        cache: "no-store",
+      });
+      if (!userResponse.ok) return NextResponse.json({ error: "A sessão expirou. Entre novamente na Área do Cliente." }, { status: 401 });
+      const user = await userResponse.json() as { id?: string; email?: string };
+      if (!user.id || (user.email && user.email.toLowerCase() !== email)) return NextResponse.json({ error: "O email do pedido deve corresponder à conta autenticada." }, { status: 403 });
+      customerId = user.id;
+    } catch {
+      return NextResponse.json({ error: "Não foi possível validar a sessão do cliente." }, { status: 502 });
+    }
+  }
   const referenceCode = `ACJL-${new Date().getUTCFullYear()}-${crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase()}`;
   try {
     const response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/service_requests`, {
       method: "POST",
       headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
-      body: JSON.stringify({ reference_code: referenceCode, service_name_snapshot: serviceName, customer_name: customerName, business_name: businessName || null, email, phone, description: description || "Pedido de proposta comercial.", status: "received" }),
+      body: JSON.stringify({ reference_code: referenceCode, customer_id: customerId, service_name_snapshot: serviceName, customer_name: customerName, business_name: businessName || null, email, phone, description: description || "Pedido de proposta comercial.", status: "received" }),
       cache: "no-store",
     });
     if (!response.ok) {
