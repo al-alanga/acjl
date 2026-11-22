@@ -4,12 +4,20 @@ import { useMemo, useState } from "react";
 import { ArrowRight, Check, FileCheck2, Menu, ShieldCheck, Calculator, ReceiptText, UsersRound, BriefcaseBusiness, Building2, ClipboardList, Search, X, Phone, Mail, MapPin } from "lucide-react";
 
 const services = [
-  { category: "Formalização", title: "Constituição de empresa", description: "Trate da criação do seu negócio com apoio ao processo e à documentação necessária.", type: "Avulso", icon: Building2, price: "Sob orçamento" },
-  { category: "Contabilidade", title: "Contabilidade mensal", description: "Registos organizados e informação financeira para acompanhar a atividade do negócio.", type: "Mensal", icon: Calculator, price: "Sob proposta" },
+  { category: "Formalização", title: "Constituição de empresa", description: "Apoio na criação do negócio e no encaminhamento dos registos e procedimentos aplicáveis.", type: "Avulso", icon: Building2, price: "Sob proposta" },
+  { category: "Formalização", title: "Alteração de dados da empresa", description: "Tratamento de alterações de sede, actividade, representantes ou outros dados sujeitos a actualização.", type: "Avulso", icon: Building2, price: "Sob proposta" },
+  { category: "Formalização", title: "Licenciamento e renovação", description: "Apoio aos procedimentos de licenciamento ou renovação adequados à actividade e ao local.", type: "Avulso", icon: FileCheck2, price: "Sob proposta" },
+  { category: "Contabilidade", title: "Contabilidade mensal", description: "Registos contabilísticos e informação financeira organizados para acompanhar a actividade do negócio.", type: "Mensal", icon: Calculator, price: "Sob proposta" },
+  { category: "Contabilidade", title: "Organização de contabilidade em atraso", description: "Recuperação de registos de um período definido, com âmbito e volume acordados previamente.", type: "Avulso combinado", icon: Calculator, price: "Sob proposta" },
   { category: "Fiscalidade", title: "Declarações fiscais", description: "Preparação e submissão das obrigações fiscais abrangidas pelo serviço contratado.", type: "Avulso", icon: ReceiptText, price: "Sob proposta" },
-  { category: "Recursos Humanos", title: "Processamento salarial", description: "Apoio no cálculo mensal dos salários e nos procedimentos associados aos trabalhadores.", type: "Mensal ou avulso", icon: UsersRound, price: "Sob orçamento" },
-  { category: "Concursos e fornecedores", title: "Dossier de fornecedor", description: "Prepare a documentação administrativa exigida para fornecer produtos ou serviços a empresas.", type: "Avulso", icon: FileCheck2, price: "Sob proposta" },
-  { category: "Gestão empresarial", title: "Regularização empresarial", description: "Tratamento de pendências administrativas, fiscais ou laborais com âmbito definido.", type: "Pacote combinado", icon: ClipboardList, price: "Sob orçamento" },
+  { category: "Fiscalidade", title: "Regularização de obrigações fiscais", description: "Apoio no tratamento de declarações em falta e outras pendências fiscais dentro do âmbito acordado.", type: "Avulso combinado", icon: ReceiptText, price: "Sob proposta" },
+  { category: "Fiscalidade", title: "Apoio a notificações fiscais", description: "Preparação de resposta e organização dos elementos necessários para uma notificação concreta.", type: "Avulso", icon: FileCheck2, price: "Sob proposta" },
+  { category: "Recursos Humanos", title: "Processamento salarial", description: "Cálculo periódico dos salários e procedimentos administrativos incluídos no contrato.", type: "Mensal ou avulso", icon: UsersRound, price: "Sob proposta" },
+  { category: "Recursos Humanos", title: "Admissão e inscrição de trabalhador", description: "Apoio à recolha de dados e aos procedimentos aplicáveis de contratação e inscrição.", type: "Avulso", icon: UsersRound, price: "Sob proposta" },
+  { category: "Recursos Humanos", title: "Gestão de saída de trabalhador", description: "Apoio aos procedimentos de saída e ao cálculo dos valores abrangidos pelo serviço.", type: "Avulso", icon: UsersRound, price: "Sob proposta" },
+  { category: "Concursos e fornecedores", title: "Preparação de dossier de fornecedor", description: "Organização dos documentos exigidos por um cliente empresarial para iniciar ou manter uma relação comercial.", type: "Avulso", icon: FileCheck2, price: "Sob proposta" },
+  { category: "Concursos e fornecedores", title: "Preparação documental para concurso", description: "Organização de documentos para uma oportunidade ou concurso identificado, sem garantia de adjudicação.", type: "Avulso", icon: ClipboardList, price: "Sob proposta" },
+  { category: "Gestão empresarial", title: "Regularização empresarial", description: "Tratamento coordenado de pendências administrativas, fiscais ou laborais com âmbito definido.", type: "Avulso combinado", icon: ClipboardList, price: "Sob proposta" },
 ];
 
 const packages = [
