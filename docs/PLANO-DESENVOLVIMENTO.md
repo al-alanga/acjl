@@ -17,7 +17,7 @@
 - [x] Adicionar metadados SEO/Open Graph e idioma documental português de Moçambique (pt-MZ).
 - [ ] Aplicar o logótipo original conforme a orientação visual aprovada; a versão gráfica foi revertida a pedido do cliente e mantém-se a assinatura textual provisória.
 - [ ] Rever textos e contactos finais com a ACJL.
-- [ ] Validar o aspecto no domínio publicado e confirmar build/deploy; não foi encontrado projecto Vercel ligado ao repositório.
+- [x] Confirmada implantação de produção na Vercel; a validação do domínio personalizado está fora do âmbito por orientação do cliente.
 - Critério de aceitação: página responsiva, identidade conforme a última orientação aprovada, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
 ## Fase 2 — Catálogo comercial definitivo
 - [x] Formalizar modalidades, serviços, limites e regras comerciais de referência em `docs/CATALOGO-COMERCIAL.md`.
@@ -31,15 +31,17 @@
 - [ ] Validar os limites operacionais, prazos, preços e condições comerciais com a ACJL.
 - Critério de aceitação: cada produto explica qual problema resolve, o que será entregue, o que não está incluído e como é calculado o preço.
 
-## Fase 3 — Pedidos e área do cliente
-- [x] Desenhar e aplicar o modelo inicial de dados no projecto Supabase ACJL; seis tabelas com RLS activo.
-- [x] Confirmar o projecto Supabase ACJL e aplicar o esquema inicial.
-- [x] Ligar o formulário a `POST /api/requests`, com validação de dados e gravação server-side quando as credenciais estiverem configuradas.
-- [ ] Configurar `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` nos ambientes local e Vercel; testar o fluxo real ponta a ponta.
-- [ ] Implementar conta de cliente, autenticação, recuperação de acesso e perfis.
-- [ ] Permitir anexar documentos e consultar o histórico e estado dos pedidos.
-- [ ] Criar backoffice interno para triagem, atribuição, mensagens, prazos e entrega.
-- Estados mínimos: rascunho, recebido, a aguardar informação, proposta enviada, aguarda pagamento, pago, em execução, aguarda cliente/entidade externa, concluído, cancelado.
+## Fase 3 — Recepção pública de pedidos
+- [x] Ligar o formulário público a `POST /api/requests`, com validação server-side e gravação no Supabase.
+- [x] Manter o envio sem cadastro, login, sessão de cliente ou backoffice público.
+- [x] Corrigir a permissão de inserção do papel `service_role` na tabela `service_requests`.
+- [x] Confirmar pelo Supabase que foi registado um pedido real após novo envio do formulário.
+- [x] Mostrar uma referência de pedido após a resposta de sucesso da API.
+- [x] Não expor a chave `SUPABASE_SERVICE_ROLE_KEY` no navegador.
+- [ ] Adicionar protecção proporcional contra spam e abuso, monitorizando os pedidos sem bloquear clientes legítimos.
+- [ ] Definir o procedimento interno da ACJL para consultar novos pedidos e responder dentro de um prazo aprovado.
+- [ ] Confirmar política de privacidade e contactos oficiais antes da publicação final.
+- Decisão de produto: o website é um canal leve de apresentação e recepção de solicitações, não um portal de cliente nem um backoffice.
 
 ## Fase 4 — Pagamentos
 - [ ] Confirmar o fornecedor e os termos comerciais de integração M-Pesa.
