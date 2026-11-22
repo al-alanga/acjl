@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
 import { ArrowLeft, BriefcaseBusiness, CheckCircle2, LoaderCircle, LogOut, RefreshCw, ShieldCheck } from "lucide-react";
 
@@ -28,7 +27,7 @@ const statusLabels: Record<string, string> = {
 
 export default function CustomerPortalPage() {
   const router = useRouter();
-  const [mode, setMode] = useState<"login" | "signup">("login");
+  const [mode, setMode] = useState<"login" | "signup" | "reset">("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -79,7 +78,13 @@ export default function CustomerPortalPage() {
     setError("");
     setMessage("");
     try {
-      if (mode === "signup") {
+      if (mode === "reset") {
+        const { error: resetError } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
+          redirectTo: `${window.location.origin}/area-cliente`,
+        });
+        if (resetError) throw resetError;
+        setMessage("Se existir uma conta associada a este email, receberá instruções para recuperar o acesso.");
+      } else if (mode === "signup") {
         const { data, error: authError } = await supabase.auth.signUp({
           email: email.trim().toLowerCase(),
           password,
@@ -146,14 +151,16 @@ export default function CustomerPortalPage() {
         ) : (
           <section className="portal-panel portal-auth-panel">
             <div className="portal-tabs"><button className={mode === "login" ? "portal-tab active" : "portal-tab"} onClick={() => {setMode("login");setError("");setMessage("");}}>Entrar</button><button className={mode === "signup" ? "portal-tab active" : "portal-tab"} onClick={() => {setMode("signup");setError("");setMessage("");}}>Criar conta</button></div>
-            <h2>{mode === "login" ? "Bem-vindo de volta" : "Crie a sua conta de cliente"}</h2>
-            <p className="portal-muted">{mode === "login" ? "Entre para consultar os pedidos associados à sua conta." : "Use um email válido para poder confirmar e proteger a sua conta."}</p>
+            <h2>{mode === "login" ? "Bem-vindo de volta" : mode === "signup" ? "Crie a sua conta de cliente" : "Recuperar acesso"}</h2>
+            <p className="portal-muted">{mode === "login" ? "Entre para consultar os pedidos associados à sua conta." : mode === "signup" ? "Use um email válido para poder confirmar e proteger a sua conta." : "Indique o email da sua conta para receber instruções de recuperação."}</p>
             <form className="portal-form" onSubmit={submitAuth}>
               {mode === "signup" && <label>Nome completo<input autoComplete="name" required value={name} onChange={e => setName(e.target.value)} placeholder="O seu nome"/></label>}
               <label>Email<input type="email" autoComplete="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="nome@empresa.co.mz"/></label>
-              <label>Palavra-passe<input type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} minLength={8} required value={password} onChange={e => setPassword(e.target.value)} placeholder="Mínimo de 8 caracteres"/></label>
-              <button className="button portal-submit" type="submit" disabled={busy}>{busy ? <LoaderCircle className="portal-spin" size={17}/> : <ShieldCheck size={17}/>} {busy ? "A processar…" : mode === "login" ? "Entrar na minha conta" : "Criar conta segura"}</button>
+              {mode !== "reset" && <label>Palavra-passe<input type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} minLength={8} required value={password} onChange={e => setPassword(e.target.value)} placeholder="Mínimo de 8 caracteres"/></label>}
+              <button className="button portal-submit" type="submit" disabled={busy}>{busy ? <LoaderCircle className="portal-spin" size={17}/> : <ShieldCheck size={17}/>} {busy ? "A processar…" : mode === "login" ? "Entrar na minha conta" : mode === "signup" ? "Criar conta segura" : "Enviar instruções"}</button>
             </form>
+            {mode === "login" && <button type="button" className="portal-text-button" onClick={() => {setMode("reset");setError("");setMessage("");}}>Esqueci-me da palavra-passe</button>}
+            {mode === "reset" && <button type="button" className="portal-text-button" onClick={() => {setMode("login");setError("");setMessage("");}}>Voltar ao início de sessão</button>}
             {mode === "signup" && <p className="portal-terms">Ao criar a conta, os dados serão utilizados para gerir o seu acesso e os pedidos submetidos à ACJL.</p>}
           </section>
         )}
