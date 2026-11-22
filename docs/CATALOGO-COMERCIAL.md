@@ -81,7 +81,6 @@ Este catálogo organiza as ofertas para revisão comercial. Os preços permanece
 
 - **Contabilidade & Fiscalidade:** registos contabilísticos e obrigações fiscais incluídas, com calendário e volume definidos.
 - **Administração & Recursos Humanos:** rotinas administrativas e de pessoal com limites definidos, incluindo processamento salarial, admissões/saídas acordadas e organização de registos de férias e faltas.
-- **Administração & Recursos Humanos:** rotinas administrativas e de pessoal com limites definidos.
 - **Gestão Empresarial Integrada:** combinação de contabilidade, fiscalidade, Recursos Humanos e coordenação administrativa, sujeita a âmbito e preço aprovados.
 
 ## Regras comerciais e de esforço
