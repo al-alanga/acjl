@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       });
       if (!userResponse.ok) return NextResponse.json({ error: "A sessão expirou. Entre novamente na Área do Cliente." }, { status: 401 });
       const user = await userResponse.json() as { id?: string; email?: string };
-      if (!user.id || (user.email && user.email.toLowerCase() !== email)) return NextResponse.json({ error: "O email do pedido deve corresponder à conta autenticada." }, { status: 403 });
+      if (!user.id || !user.email || user.email.toLowerCase() !== email) return NextResponse.json({ error: "O email do pedido deve corresponder à conta autenticada." }, { status: 403 });
       customerId = user.id;
     } catch {
       return NextResponse.json({ error: "Não foi possível validar a sessão do cliente." }, { status: 502 });
