@@ -11,7 +11,7 @@
 ## Fase 1 — Base institucional e visual
 - [x] Inicializar aplicação Next.js, React e TypeScript.
 - [x] Criar primeira página institucional e catálogo demonstrativo.
-- [x] Colocar o ficheiro de imagem do logótipo na pasta pública e usá-lo como imagem na navegação e no rodapé.
+- [x] Colocar o ficheiro de imagem do logótipo original na pasta pública e usá-lo como imagem na navegação e no rodapé.\n- [x] Reforçar a aplicação fiel do logótipo no cabeçalho e remover lettering “ACJL” decorativo que podia parecer uma versão recriada da marca.
 - [ ] Afinar a hierarquia visual para seguir a referência ALINVEST sem copiar a identidade nem o conteúdo.
 - [ ] Rever todos os textos, contactos e preços provisórios antes da publicação pública.
 - Critério de aceitação: página responsiva, identidade fiel ao logótipo original, navegação funcional e sem dados comerciais inventados apresentados como definitivos.
