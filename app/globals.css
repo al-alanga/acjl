@@ -36,3 +36,5 @@ img{max-width:100%;height:auto}
 .request-modal input:focus-visible,.request-modal textarea:focus-visible{outline:3px solid #c5a044;outline-offset:1px}
 @media(max-width:760px){.navlinks{max-height:calc(100dvh - 110px);overflow-y:auto}.footer-bottom{overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){.service-journey-card:hover,.contract-model-card:hover,.button:hover{transform:none}}
+
+.portal-text-button{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;padding:8px 0;border:0;background:transparent;color:#07517e;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.portal-text-button:hover{color:#061b35}.portal-text-button:focus-visible{outline:3px solid #c5a044;outline-offset:3px}
