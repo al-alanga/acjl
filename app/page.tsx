@@ -65,8 +65,8 @@ export default function Home() {
       <div className="topline"><div className="container topline-inner"><span>Parceiro para o crescimento do seu negócio</span><div><span>Atendimento empresarial</span><span className="top-sep">|</span><span>Maputo, Moçambique</span></div></div></div>
       <header className="header">
         <div className="container nav">
-          <a className="brand" href="#inicio" aria-label="ACJL início">
-            <img className="brand-logo" src="/acjl-logo.png" alt="ACJL — Fiscalidade, Contabilidade, RH e Serviços" />
+          <a className="brand brand-header" href="#inicio" aria-label="ACJL início">
+            <span className="header-logo-panel"><img className="brand-logo" src="/acjl-logo.png" alt="Logótipo original da ACJL — Contabilidade & Serviços" /></span>
           </a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">{menuOpen ? <X/> : <Menu/>}</button>
           <nav className={menuOpen ? "navlinks open" : "navlinks"}>
@@ -90,11 +90,11 @@ export default function Home() {
             <div className="hero-proof"><div className="proof-icon"><ShieldCheck size={20}/></div><div><strong>Um parceiro para o seu negócio</strong><span>Serviços definidos, execução acompanhada e condições transparentes.</span></div></div>
           </div>
           <div className="hero-visual">
-            <div className="visual-top"><span>ACJL</span><span className="visual-dot"></span><span>BUSINESS SERVICES</span></div>
+            <div className="visual-top"><span className="visual-kicker">SOLUÇÕES EMPRESARIAIS</span><span className="visual-dot"></span><span>MOÇAMBIQUE</span></div>
             <div className="visual-title">Estrutura para<br/><b>avançar.</b></div>
             <div className="visual-line"></div>
             <div className="visual-metrics"><div><span>01</span><strong>Contabilidade</strong></div><div><span>02</span><strong>Fiscalidade</strong></div><div><span>03</span><strong>Recursos Humanos</strong></div></div>
-            <div className="visual-watermark">ACJL</div>
+            <div className="visual-watermark" aria-hidden="true"></div>
             <div className="visual-corner">SOLUÇÕES EMPRESARIAIS · MOÇAMBIQUE</div>
           </div>
         </div>
