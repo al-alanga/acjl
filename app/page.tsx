@@ -100,6 +100,23 @@ export default function Home() {
 
       <section className="trust-strip"><div className="container trust-grid"><div><span className="trust-number">01</span><div><strong>Clareza na contratação</strong><small>Âmbito e preço definidos</small></div></div><div><span className="trust-number">02</span><div><strong>Soluções práticas</strong><small>Foco no que precisa resolver</small></div></div><div><span className="trust-number">03</span><div><strong>Contacto contínuo</strong><small>Actualizações pela equipa ACJL</small></div></div><div><span className="trust-number">04</span><div><strong>Um parceiro</strong><small>Várias áreas empresariais</small></div></div></div></section>
 
+      <section className="section needs-section" id="necessidades">
+        <div className="container">
+          <div className="section-heading">
+            <div><div className="eyebrow"><span></span> SITUAÇÕES REAIS DO NEGÓCIO</div><h2>O que precisa de <em>resolver hoje?</em></h2></div>
+            <p>Escolha a situação mais próxima da sua realidade. Ajudamos a delimitar o serviço, os documentos necessários e o próximo passo.</p>
+          </div>
+          <div className="needs-grid">
+            <article className="need-card"><span className="need-number">01 · COMEÇAR</span><h3>Vai abrir uma empresa?</h3><p>Organize a formalização e perceba os procedimentos aplicáveis antes de avançar, evitando começar sem saber que passos e documentos preparar.</p><button onClick={() => startRequest("Começar o Negócio")}>Preparar o arranque <ArrowRight size={16}/></button></article>
+            <article className="need-card"><span className="need-number">02 · TER CONTROLO</span><h3>Precisa de pôr a contabilidade em dia?</h3><p>Recupere registos de períodos acordados e clarifique as pendências para retomar o acompanhamento contabilístico com uma base organizada.</p><button onClick={() => startRequest("Colocar a Contabilidade em Ordem")}>Tratar os atrasos <ArrowRight size={16}/></button></article>
+            <article className="need-card"><span className="need-number">03 · CUMPRIR OBRIGAÇÕES</span><h3>Tem prazos ou assuntos fiscais por tratar?</h3><p>Identifique as obrigações abrangidas, reúna a documentação necessária e organize os passos para tratar os períodos definidos na proposta.</p><button onClick={() => startRequest("Regularização de obrigações fiscais")}>Organizar as obrigações <ArrowRight size={16}/></button></article>
+            <article className="need-card"><span className="need-number">04 · CRESCER</span><h3>Quer fornecer empresas ou concorrer?</h3><p>Prepare e confira a documentação exigida para uma oportunidade concreta, reduzindo o risco de falhas formais sem prometer aprovação ou adjudicação.</p><button onClick={() => startRequest("Preparar para Fornecer Empresas")}>Preparar o dossier <ArrowRight size={16}/></button></article>
+            <article className="need-card"><span className="need-number">05 · GERIR A EQUIPA</span><h3>Quer organizar salários e processos de pessoal?</h3><p>Estruture as rotinas de processamento salarial e os procedimentos de pessoal incluídos no serviço, com limites e responsabilidades claros.</p><button onClick={() => startRequest("Recursos Humanos")}>Organizar os RH <ArrowRight size={16}/></button></article>
+            <article className="need-card need-card-custom"><span className="need-number">06 · VÁRIAS NECESSIDADES</span><h3>Tem assuntos diferentes para resolver?</h3><p>Explique o que está a dificultar a operação da empresa. A ACJL pode delimitar uma solução combinada com entregáveis e condições definidos numa proposta.</p><button onClick={() => startRequest("Solução empresarial combinada")}>Descrever a minha situação <ArrowRight size={16}/></button></article>
+          </div>
+        </div>
+      </section>
+
       <section className="section intro-section" id="empresa"><div className="container intro-grid"><div><div className="eyebrow"><span></span> SOBRE A ACJL</div><h2>O apoio empresarial deve <em>simplificar.</em></h2></div><div className="intro-copy"><p>A ACJL — Contabilidade & Serviços reúne soluções de apoio à atividade empresarial para que os responsáveis pelos negócios possam dedicar mais tempo aos clientes, às operações e ao crescimento.</p><p>Trabalhamos com serviços avulsos, pacotes mensais especializados e soluções combinadas. Cada contratação deve ter um âmbito claro, entregáveis definidos e condições adequadas à dimensão do trabalho.</p><a className="text-link dark-link" href="#como-funciona">A nossa forma de trabalhar <ArrowRight size={16}/></a></div></div></section>
 
       <section className="section services-section" id="servicos">
