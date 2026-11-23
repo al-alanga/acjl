@@ -18,6 +18,9 @@ export async function POST(request: Request) {
   const email = clean(body.email, 254).toLowerCase();
   const phone = clean(body.phone, 40);
   const description = clean(body.description, 3000);
+  if (body.contactConsent !== true) {
+    return NextResponse.json({ error: "Autorize o contacto para respondermos ao seu pedido." }, { status: 400 });
+  }
   if (!serviceName || !customerName || !validEmail(email) || !phone) {
     return NextResponse.json({ error: "Preencha o serviço, nome, email válido e telefone." }, { status: 400 });
   }
