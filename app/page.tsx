@@ -103,8 +103,8 @@ export default function Home() {
       <section className="section needs-section" id="necessidades">
         <div className="container">
           <div className="section-heading">
-            <div><div className="eyebrow"><span></span> SITUAÇÕES REAIS DO NEGÓCIO</div><h2>O que precisa de <em>resolver hoje?</em></h2></div>
-            <p>Escolha a situação mais próxima da sua realidade. Ajudamos a delimitar o serviço, os documentos necessários e o próximo passo.</p>
+            <div><div className="eyebrow"><span></span> SITUAÇÕES REAIS DO NEGÓCIO</div><h2>Em que podemos <em>ajudar a sua empresa?</em></h2></div>
+            <p>Identifique a necessidade da sua empresa e conheça as opções de apoio. A nossa equipa ajudará a definir o serviço adequado, os documentos necessários e os próximos passos.</p>
           </div>
           <div className="needs-grid">
             <article className="need-card"><span className="need-number">01 · COMEÇAR</span><h3>Vai abrir uma empresa?</h3><p>Organize a formalização e perceba os procedimentos aplicáveis antes de avançar, evitando começar sem saber que passos e documentos preparar.</p><button onClick={() => startRequest("Começar o Negócio")}>Preparar o arranque <ArrowRight size={16}/></button></article>
